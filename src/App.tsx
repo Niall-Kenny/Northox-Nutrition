@@ -1,15 +1,27 @@
 import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import Admin from "../src/pages/admin/Admin";
+import Admin from "./pages/addClient/AddClient";
 import "./App.css";
+import Navbar from "./components/navbar/Navbar";
+import { Overview } from "./pages/overview/Overview";
+import { Layout } from "antd";
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/admin" component={Admin}></Route>
-      </Switch>
-    </Router>
+    <>
+      <Router>
+        <Layout>
+          <Navbar></Navbar>
+          <Switch>
+            <Route path="/overview" component={Overview}></Route>
+            <Route path="/add-client" component={Overview}></Route>
+            <Route path="/client-list" component={Overview}></Route>
+            <Route path="/request_features" component={Overview}></Route>
+            <Route path="/report_issue" component={Overview}></Route>
+          </Switch>
+        </Layout>
+      </Router>
+    </>
   );
 };
 
